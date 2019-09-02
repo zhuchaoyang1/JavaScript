@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.var let区别</title>
+	<script>
+		// 关于var的一个面试题
+		var a = 99;            // 全局变量a
+		f();           // f是函数，虽然定义在调用的后面，但是函数声明会提升到作用域的顶部。 
+		console.log(a);        // a=>99,  此时是全局变量的a
+		function f() {
+  			console.log(a);      // 此时a还没有被定义
+  			var a = 10;
+  			console.log(a);      // a => 10
+		}
+
+
+		// JS变量分为两种：全局变量和局部变量 var和let都可以定义全局变量但区别是：
+		// let是严格意义上的{}范围，即在var的局部变量的基础之上再加上严格意义的块级作用域
+		{
+			var i = 9;
+		}
+		console.log(i);		// 9
+
+		{
+			let b = 9;
+		}
+		// console.log(b);	// undefined
+
+
+
+
+		// let 配合for循环的独特应用，个人理解：其实不需要把这些想的很复杂，因为let是完全
+		// 的块级作用域，因此说每个for和for的{}之间是没有任何联系的
+		for(let i = 0; i < 10; i++) {
+			setTimeout(()=>{
+				console.log(i);
+			},0)
+		}
+
+		for(var i = 0; i < 10; i++) {
+			setTimeout(()=>{
+				console.log(i);
+			},0)
+		}
+
+
+		let as = 'hias';
+		var asvar = 'hisasvar';
+		console.log(this.as)	// undefied
+		console.log(asvar);		// var定义的全局变量会被挂在在window身上
+
+
+	</script>
+</head>
+<body>
+	<h1>Var、let区别</h1>
+	<pre>
+		推荐网址var和let的区别以及相关面试题：
+		https://www.cnblogs.com/fly_dragon/p/8669057.html
+	</pre>
+	<pre>
+	1.let可以定义严格的块级变量，且let定义的全局变量也不会被挂在到windows身上，但是var会挂在
+	2.ES6可以用let定义块级作用域变量
+	3.let 配合for循环的独特应用
+	4.let没有变量提升与暂时性死区(只能先定义再使用)
+	5.let变量不能重复声明
+	</pre>
+</body>
+</html>

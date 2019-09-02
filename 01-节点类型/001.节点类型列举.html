@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001.节点类型列举</title>
+	<script>
+		window.onload = function() {
+			// 元素节点
+			let nodeId = document.getElementById('my-url');
+			// 属性节点
+			let nodeTag = nodeId.getAttributeNode('id');
+			// 文本节点
+			let nodeText = nodeId.firstChild;
+
+			console.log(nodeId,nodeTag,nodeText);
+
+
+		}
+	</script>
+</head>
+<body>
+	<ul id='my-url'>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+	</ul>
+	<p>
+		
+	</p>
+</body>
+</html>
